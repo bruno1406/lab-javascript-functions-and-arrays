@@ -12,8 +12,8 @@ function maxOfTwoNumbers(a, b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
-  let longest = array[0];
-  for (let i = 1; i < array.length; i++) {
+  let longest = "";
+  for (let i = 0; i < array.length; i++) {
     if (array[i].length > longest.length) {
       longest = array[i];
     }
@@ -58,25 +58,35 @@ function sum(arr) {
 }
 
 
-
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrAvg) {
+  return sumNumbers(arrAvg) / arrAvg.length
+}
 
 
 // Level 2: Array of strings
+//Implement the function named averageWordLength that receives as a single argument an array of words and returns the average length of the words:
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrOfStr) { 
+    return sum(arrOfStr) / arrOfStr.length
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+//Create function avg(arr) that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or 
+//strings and/or booleans. We are following a similar logic to the one applied on the bonus iteration 4.1.
+
+function avg(arr) {
+  return sum(arr) / arr.length
+}
 
 // Iteration #5: Unique arrays
+// Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the indexOf Array method.
+// Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -91,18 +101,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let cleanArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (cleanArray.includes(arr[i])) {
+      continue;
+    } else {
+      cleanArray.push(arr[i]);
+    }
+  }
+  return cleanArray
+}
+
 
 
 
 // Iteration #6: Find elements
+//Let's create a simple array search.
+//Declare a function named doesWordExist that will take in an array of words as one argument, 
+//and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, wordToSearch) {
+  return arr.includes(wordToSearch)
+}
 
 
 
 // Iteration #7: Count repetition
+//Declare a function named howManyTimes that will take in an array of words as the first argument, 
+//and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+
 const wordsCount = [
   'machine',
   'matter',
@@ -117,11 +148,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let sum = 0;
+  for (let i=0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      sum++
+    }
+  }
+  return sum;
+}
 
 
 
 // Iteration #8: Bonus
+//What is the greatest product of four adjacent numbers? We consider adjacent 
+//any four numbers that are next to each other horizontally or vertically.
+
+
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -145,7 +189,34 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let sum = 0;
+  let temp = 0;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < arr[i].length - 3; j++) {
+      temp = arr[i][j] * arr[i+1][j] * arr[i + 2][j] * arr[i+3][j]
+      if (isNaN(temp)) {
+        continue;
+      } else {
+        if (temp>sum) {
+          sum = temp;
+        } 
+      }
+      temp = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3]
+      if (isNaN(temp)) {
+        continue;
+      } else {
+        if (temp>sum) {
+          sum = temp;
+        } 
+      }
+    }
+  }
+  return sum
+}
+
+//Following the logic you've used in iteration #8, declare a function called greatestProductOfDiagonals(matrix). 
+//It takes a matrix as a parameter and returns the greatest product of any four values layed out diagonally, in either direction.
 
 
 
