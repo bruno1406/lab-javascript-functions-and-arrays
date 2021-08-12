@@ -195,21 +195,13 @@ function greatestProduct(arr) {
   for (let i = 0; i < matrix.length - 3; i++) {
     for (let j = 0; j < arr[i].length - 3; j++) {
       temp = arr[i][j] * arr[i+1][j] * arr[i + 2][j] * arr[i+3][j]
-      if (isNaN(temp)) {
-        continue;
-      } else {
         if (temp>sum) {
           sum = temp;
         } 
-      }
       temp = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3]
-      if (isNaN(temp)) {
-        continue;
-      } else {
         if (temp>sum) {
           sum = temp;
         } 
-      }
     }
   }
   return sum
@@ -217,6 +209,26 @@ function greatestProduct(arr) {
 
 //Following the logic you've used in iteration #8, declare a function called greatestProductOfDiagonals(matrix). 
 //It takes a matrix as a parameter and returns the greatest product of any four values layed out diagonally, in either direction.
+
+// function greatestProductOfDiagonals(arr) {
+//   let sum = 0;
+//   let temp = 0;
+//   for (let i = 0; i < matrix.length - 3; i++) {
+//     for (let j = 0; j < arr[i].length - 3; j++) {
+//       temp = arr[i][j] * arr[i+1][j+1] * arr[i + 2][j+2] * arr[i+3][j+3]
+//         if (temp>sum) {
+//           sum = temp;
+//         } 
+//       temp = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3]
+//         if (temp>sum) {
+//           sum = temp;
+//         } 
+//     }
+//   }
+//   return sum
+
+
+
 
 
 
