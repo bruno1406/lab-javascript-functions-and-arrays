@@ -115,7 +115,6 @@ function uniquifyArray(arr) {
 
 
 
-
 // Iteration #6: Find elements
 //Let's create a simple array search.
 //Declare a function named doesWordExist that will take in an array of words as one argument, 
@@ -127,8 +126,6 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr, wordToSearch) {
   return arr.includes(wordToSearch)
 }
-
-
 
 // Iteration #7: Count repetition
 //Declare a function named howManyTimes that will take in an array of words as the first argument, 
